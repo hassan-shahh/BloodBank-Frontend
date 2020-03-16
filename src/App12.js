@@ -1,6 +1,5 @@
+import React from "react"
 
-import React from 'react'
-import { render } from '@testing-library/react'
 class App12 extends React.Component {
     constructor() {
         super()
