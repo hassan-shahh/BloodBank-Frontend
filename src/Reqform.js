@@ -1,6 +1,46 @@
 import React, { Component } from 'react';
 
-class Reqform extends Component {
+class Reqform extends Component {  constructor() {
+  super();
+
+
+  this.state = {
+      BloodTag: '',
+      Status: 'Incomplete',
+      Location:'',
+      Donorcount:'',
+      Dateofrequest:'',
+      Cause:'',
+      Bloodtype:'',
+      
+}
+  this.handlechange = this.handlechange.bind(this)
+  this.submitHandler = this.submitHandler.bind(this)
+}
+handlechange(event) {
+  this.setState({
+      [event.target.name]: event.target.value
+  })
+}
+submitHandler() {
+  fetch('http://localhost:4000/reservation', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+          "BloodTag": this.state.BloodTag,
+          'Status': this.state.Status,
+          "Location":this.state.Location,
+          "Cause":this.state.Cause,
+          "Bloodtype":this.state.Bloodtype,
+          "Donorcount":this.state.Donorcount,
+          "Dateofrequest":this.state.Dateofrequest
+
+
+
+      }
+      )
+  })
+}
     render() {
         return (
                 <div>
@@ -19,36 +59,32 @@ class Reqform extends Component {
                           <img src="temp/images/signup-img.jpg" alt="" />
                         </div>
                         <div className="signup-form">
-                          <form method="POST" className="register-form" id="register-form">
-                            <h2>student registration form</h2>
-                            <div className="form-group">
-                              <div className="form-group">
-                                <label htmlFor="name">Name :</label>
-                                <input type="text" name="name" id="name" required />
-                              </div>
-                            </div>
-                            <div className="form-group">
-                              <label htmlFor="address">Address :</label>
-                              <input type="text" name="address" id="address" required />
-                            </div>
-                            <div className="form-radio">
-                              <label htmlFor="gender" className="radio-label">Gender :</label>
-                              <div className="form-radio-item">
-                                <input type="radio" name="gender" id="male" defaultChecked />
-                                <label htmlFor="male">Male</label>
-                                <span className="check" />
-                              </div>
-                              <div className="form-radio-item">
-                                <input type="radio" name="gender" id="female" />
-                                <label htmlFor="female">Female</label>
-                                <span className="check" />
-                              </div>
-                            </div>
+                          <form method="POST" className="register-form" id="register-form" onSubmit={this.submitHandler}>
+                            <h2>Request For Blood</h2>
                             <div className="form-row">
                               <div className="form-group">
                                 <label htmlFor="state">Blood Type</label>
                                 <div className="form-select">
-                                  <select name="state" id="state">
+                                  <select name="state" id="state" name="Bloodtype" value={this.state.Bloodtype} onChange={this.handlechange} placeholder="Blood Type"  >
+                                    <option value />
+                        <option value="Blood">Blood</option>
+                        <option value="White Blood">White Blood</option>
+                        <option value="Platelets">Platelets</option>
+                                  </select>
+                                  <span className="select-icon"><i className="zmdi zmdi-chevron-down" /></span>
+                                </div>
+                              </div>
+                              </div>
+                              <div className="form-group">
+                              <label htmlFor="address">Location:</label>
+                              <input type="text" name="Location" value={this.state.Location} onChange={this.handlechange} placeholder="Location"   required />
+                            </div>
+                            
+                            <div className="form-row">
+                              <div className="form-group">
+                                <label htmlFor="state">Blood Type</label>
+                                <div className="form-select">
+                                  <select name="state" id="state" name="BloodTag" value={this.state.BloodTag} onChange={this.handlechange} placeholder="BloodType"  >
                                     <option value />
                         <option value="A+">A+</option>
                         <option value="A-">A-</option>
@@ -65,7 +101,7 @@ class Reqform extends Component {
                               <div className="form-group">
                                 <label htmlFor="Donorcount">Donors Needed</label>
                                 <div className="form-select">
-                                  <select name="Donorcount" id= "Donorcount">
+                                  <select name="Donorcount" id= "Donorcount" name="Donorcount" value={this.state.Donorcount} onChange={this.handlechange} placeholder="User Name"  >
                                     <option value />
                                     <option value="1" defaultValue>1</option>
                                     <option value="2">2</option>
@@ -79,25 +115,30 @@ class Reqform extends Component {
                               </div>
                             </div>
                             <div className="form-group">
-                              <label htmlFor="course">Course :</label>
+                              <label htmlFor="Cause">Cause :</label>
                               <div className="form-select">
-                                <select name="course" id="course">
+                                <select name="Cause" id="Cause" name="Cause" value={this.state.Cause} onChange={this.handlechange} placeholder="User Name"  >
                                   <option value />
-                                  <option value="computer">Computer Operator &amp; Pragramming Assistant</option>
-                                  <option value="desiger">Designer</option>
-                                  <option value="marketing">Marketing</option>
+                                  <option value="Accident">Accident</option>
+                                  <option value="Surgery">Designer</option>
+                                  <option value="Pregnancy">Pregnancy</option>
+                                  <option value="Cancer">Cancer</option>
+                                  <option value="Transplant">Transplant</option>
+                                  
+                                  
                                 </select>
                                 <span className="select-icon"><i className="zmdi zmdi-chevron-down" /></span>
                               </div>
                             </div>
                             <div className="form-group">
-                              <label htmlFor="Phone">Phone:</label>
-                              <input type="Phone" name="Phone" id="Phone" />
+                              <label htmlFor="Phone">DATE:</label>
+                              <input type="Phone" name="Dateofrequest" value={this.state.Dateofrequest} onChange={this.handlechange} placeholder="Date" />
                             </div>
                             <div className="form-submit">
-                              <input type="submit" defaultValue="Submit Form" className="submit" name="submit" id="submit" />
+                              < button type="submit" className="submit" name="submit" id="submit" onClick={this.submitHandler}>Submit</button>
                             </div>
                           </form>
+                       
                         </div>
                       </div>
                     </div>
