@@ -22,10 +22,10 @@ class FeebackModal extends Component {
         return (
             <div>
                 <div>
-  <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#modalPoll-1">Launch
+  <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#modalPoll-1" onClick ={this.toggleModal}>Launch
     modal</button>
   {/* Modal: modalPoll */}
-  <div className="modal fade right" id="modalPoll-1" tabIndex={-1} role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="false">
+  <div className="modal fade right" id="modalPoll-1" tabIndex={-1} role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="false" isOpen ={this.state.isOn}>
     <div className="modal-dialog modal-full-height modal-right modal-notify modal-info" role="document">
       <div className="modal-content">
         {/*Header*/}
@@ -87,7 +87,7 @@ class FeebackModal extends Component {
           <a type="button" className="btn btn-primary waves-effect waves-light">Send
             <i className="fa fa-paper-plane ml-1" />
           </a>
-          <a type="button" className="btn btn-outline-primary waves-effect" data-dismiss="modal">Cancel</a>
+        <button>  <a type="button" className="btn btn-outline-primary waves-effect" data-dismiss="modal" onClick ={this.toggleModal}>Cancel</a></button>
         </div>
       </div>
     </div>
