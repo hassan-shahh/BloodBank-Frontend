@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 
 import Modal from 'react-modal'
-
+import {button} from 'react-bootstrap'
 
 class FeebackModal extends Component {
     constructor() {

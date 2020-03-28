@@ -12,7 +12,7 @@ import ReactDOM from 'react-dom';
 //import App from './App10'
 //import App11 from './App11'
 //import Football from './Football'
-import Routin from './FeebackModal'
+import Routin from './NewReg'
 //import App19 from './App20'
 import * as serviceWorker from './serviceWorker';
 
