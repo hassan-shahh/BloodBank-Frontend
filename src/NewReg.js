@@ -5,7 +5,7 @@ class NewReg extends Component {
         return (
             <div>
                 <div>
-                <link
+                  <link
   rel="stylesheet"
   href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
   integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
@@ -59,9 +59,9 @@ class NewReg extends Component {
                 </div>
                 <div className="wizard-navigation">
                 <ul>
-                    <li><a href="#" data-toggle="tab">About</a></li>
-                    <li><a href="#" data-toggle="tab">Account</a></li>
-                    <li><a href="#" data-toggle="tab">Address</a></li>
+                    <li><a href="#about" data-toggle="tab">About</a></li>
+                    <li><a href="#account" data-toggle="tab">Account</a></li>
+                    <li><a href="#address" data-toggle="tab">Address</a></li>
                   </ul>
                 </div>
                 <div className="tab-content">

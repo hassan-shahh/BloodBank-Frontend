@@ -1,6 +1,6 @@
 import React from 'react'
-import jokedata from './jokedata'
-import Joke from './Joke'
+import jokedata from '../jokedata'
+import Joke from '../Joke'
 
 
 

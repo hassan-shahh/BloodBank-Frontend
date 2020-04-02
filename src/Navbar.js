@@ -15,6 +15,9 @@ class Navbar extends Component {
             </Link>
             </ul>
                 </nav>
+                <Link to='/NewCrud'>
+                <button>Request Blood</button>
+                </Link>
             </div>
         );
     }

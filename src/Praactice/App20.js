@@ -1,5 +1,5 @@
 import React, {Component} from "react"
-import Conditional from "./Conditional"
+import Conditional from "../Conditional"
 
 class App20 extends Component {
     constructor() {

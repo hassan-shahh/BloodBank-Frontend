@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Navbar from "./Navbar"; 
 import Login from "./Login"; 
+import NewCrud from './SearchForRequests'
 
 import Regform from "./Regform"; 
 
@@ -15,6 +16,7 @@ class Rouute extends Component {
                 <Route path="/" exact component={Navbar} />
                 <Route path="/Login" exact component={Login} />
                 <Route path="/Regform" exact component={Regform} />
+                <Route path="/NewCrud" exact component={NewCrud} />   
                 </Switch>
             </div>
 
