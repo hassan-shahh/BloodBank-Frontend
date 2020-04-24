@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import {Link} from 'react-router-dom'
 class Regform extends Component {
   constructor() {
     super();
@@ -38,6 +38,7 @@ class Regform extends Component {
       }
       )
     })
+    
   }
 
   render() {
@@ -153,10 +154,11 @@ class Regform extends Component {
                       </div>
                     </div>
                   </div>
-
-                  <div className="p-t-15">
+              <Link to='/Navbar'>  
+                  <div className="p-t-15">              
                     <button className="btn btn--radius-2 btn--blue" type="button" onClick={this.submitHandler}>Submit</button>
                   </div>
+                  </Link>    
                 </form>
               </div>
             </div>

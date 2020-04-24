@@ -101,9 +101,9 @@ submitHandler() {
                               <div className="form-group">
                                 <label htmlFor="Donorcount">Donors Needed</label>
                                 <div className="form-select">
-                                  <select name="Donorcount" id= "Donorcount" name="Donorcount" value={this.state.Donorcount} onChange={this.handlechange} placeholder="User Name"  >
+                                  <select name="Donorcount" id= "Donorcount" name="Donorcount" value={this.state.Donorcount} onChange={this.handlechange} >
                                     <option value />
-                                    <option value="1" defaultValue>1</option>
+                                    <option value="1" selected>1</option>
                                     <option value="2">2</option>
                                     <option value="3">3</option>
                                     <option value="4">4</option>
@@ -117,10 +117,10 @@ submitHandler() {
                             <div className="form-group">
                               <label htmlFor="Cause">Cause :</label>
                               <div className="form-select">
-                                <select name="Cause" id="Cause" name="Cause" value={this.state.Cause} onChange={this.handlechange} placeholder="User Name"  >
+                                <select name="Cause" id="Cause" name="Cause" value={this.state.Cause} onChange={this.handlechange}   >
                                   <option value />
                                   <option value="Accident">Accident</option>
-                                  <option value="Surgery">Designer</option>
+                                  <option value="Surgery">Surgery</option>
                                   <option value="Pregnancy">Pregnancy</option>
                                   <option value="Cancer">Cancer</option>
                                   <option value="Transplant">Transplant</option>
@@ -135,7 +135,7 @@ submitHandler() {
                               <input type="Phone" name="Dateofrequest" value={this.state.Dateofrequest} onChange={this.handlechange} placeholder="Date" />
                             </div>
                             <div className="form-submit">
-                              < button type="submit" className="submit" name="submit" id="submit" onClick={this.submitHandler}>Submit</button>
+                              < button type="button" className="button" name="button" id="button" onClick={this.submitHandler}>Submit</button>
                             </div>
                           </form>
                        

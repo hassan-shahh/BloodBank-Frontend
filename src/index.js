@@ -12,11 +12,11 @@ import ReactDOM from 'react-dom';
 //import App from './App10'
 //import App11 from './App11'
 //import Football from './Football'
-import Routin from './Rouute'
+import Try from './Rouute'
 //import App19 from './App20'
 import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(<Routin />, document.getElementById('root'));
+ReactDOM.render(<Try/>, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
