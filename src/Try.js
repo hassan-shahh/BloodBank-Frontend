@@ -38,10 +38,7 @@ class Try extends Component {
     Authenticated(){
 
         const token = localStorage.getItem('token')
-            if(token!=null)
-            return true
-            else 
-            return false   
+            return token && token.length>10
     }
 
 

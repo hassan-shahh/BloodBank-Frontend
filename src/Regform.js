@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import {Link} from 'react-router-dom'
+import {withRouter,Link} from 'react-router-dom'
+import Navbar from './Nav';
 class Regform extends Component {
   constructor() {
     super();
@@ -38,12 +39,15 @@ class Regform extends Component {
       }
       )
     })
+             this.props.history.push('/')
+    
     
   }
 
   render() {
     return (
       <div>
+        <Navbar/>
         {/* Required meta tags*/}
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -132,9 +136,10 @@ class Regform extends Component {
                               <input type="radio" name="Gender" value="F" checked={this.state.Gender === "F"} onChange={this.handlechange} />
                             <span className="checkmark" />
                           </label>
+                          &nbsp;
                           <label className="radio-container">Male
                               <input type="radio" name="Gender" value="M" checked={this.state.Gender === "M"} onChange={this.handlechange} />
-                            <span className="checkmark" />
+                            <span className="checkmark" /> 
                           </label>
                         </div>
                       </div>
@@ -154,11 +159,11 @@ class Regform extends Component {
                       </div>
                     </div>
                   </div>
-              <Link to='/Navbar'>  
+ 
                   <div className="p-t-15">              
                     <button className="btn btn--radius-2 btn--blue" type="button" onClick={this.submitHandler}>Submit</button>
                   </div>
-                  </Link>    
+               
                 </form>
               </div>
             </div>
@@ -171,4 +176,4 @@ class Regform extends Component {
   }
 }
 
-export default Regform;
+export default withRouter(Regform);

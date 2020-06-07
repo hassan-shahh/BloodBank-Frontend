@@ -1,6 +1,43 @@
 import {Link} from 'react-router-dom'
 import React, { Component } from "react";
+import {Redirect,withRouter} from 'react-router-dom'
 class Login extends Component{
+
+    constructor() {
+        super();
+
+
+        this.state = {
+            Email: '',
+            Password: '',
+            status:  ''
+
+        }
+        this.handlechange = this.handlechange.bind(this)
+        this.submitHandler = this.submitHandler.bind(this)
+    }
+    handlechange(event) {
+        this.setState({
+            [event.target.name]: event.target.value
+           })
+    }
+    submitHandler(event) {
+        event.preventDefault()
+        fetch('http://localhost:4000/log', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                "Email": this.state.Email,
+                'Password': this.state.Password
+            }
+            )
+        })
+        .then(res => res.text()).then(res => this.setState({status:res}))
+        localStorage.setItem('token',this.state.status)
+        if(this.state.status!='fail' && localStorage.getItem('token')){
+                 this.props.history.push('/')
+        }
+    }
       constructor() {
           super();
   
@@ -30,6 +67,7 @@ class Login extends Component{
               )
           })
           .then(res => res.text()).then(res => this.setState({status:res}))
+          localStorage.setItem('tok',this.state.status)
       }
 
   render(){
@@ -106,4 +144,4 @@ return (
   );
 }
 }
-export default Login
+export default withRouter(Login)

@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import './Seac.css'
+import Navbar2 from './Navbar2'
+import {Link} from 'react-router-dom'
 class SearchForRequests extends Component {
     constructor() {
         super();
@@ -30,9 +32,8 @@ class SearchForRequests extends Component {
     } 
         render() {
             return (
-                <div>
+<div>              
                     <div>
-    
       {/*---- Include the above in your HEAD tag --------*/}
       <title>Awesome Search Box</title>
       <link
@@ -47,6 +48,8 @@ class SearchForRequests extends Component {
         integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
         crossOrigin="anonymous"
       />
+  <div>
+  </div>
       {/* Coded with love by Mutiullah Samim*/}
       <div className="container h-100">
         <div className="d-flex justify-content-center h-100">
@@ -64,15 +67,20 @@ class SearchForRequests extends Component {
         </div>
       </div>
     </div>;
+    <div>
     <ul>
                             {this.state.Donors.map (arr =>
-                                <li key={arr.BloodrequestID}>{arr.BloodTag + " "} 
+                                <li key={arr.BloodrequestID} >
+                                  <Link to={{ pathname:`/detail/${arr.BloodrequestID}`, state:{userid:arr.UserID}}}>
+                                  <li style={{color: "#353b48", "font-size": 20}}>
+                                  {arr.BloodTag + "                       "} 
                                  {arr.Location + " "  }  
-                                 {arr.Cause+ " "} 
-                                 {arr.Dateofrequest+ " "}</li>)}
+                                 </li>
+                                 </Link>
+                                 </li>)}
     
                         </ul>
-    
+    </div>
                 </div>
             );
                             }
