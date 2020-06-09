@@ -1,179 +1,300 @@
-import React, { Component } from 'react';
-import {withRouter,Link} from 'react-router-dom'
-import Navbar from './Nav';
+import React, { Component } from "react";
+import "./Power.css";
+import Nav from "./Nav";
+
 class Regform extends Component {
   constructor() {
     super();
 
-
     this.state = {
-      FirstName: '',
-      Gender: '',
-      Email: '',
-      Password: '',
-      ContactNo: '',
-      BloodTag : '',
-
-    }
-    this.handlechange = this.handlechange.bind(this)
-    this.submitHandler = this.submitHandler.bind(this)
+      FirstName: "",
+      Gender: "",
+      Email: "",
+      Password: "",
+      ContactNo: "",
+      BloodTag: "",
+      Address: "",
+      Age: "",
+    };
+    this.handlechange = this.handlechange.bind(this);
+    this.submitHandler = this.submitHandler.bind(this);
   }
   handlechange(event) {
-
     this.setState({
-      [event.target.name]: event.target.value
-    })
+      [event.target.name]: event.target.value,
+    });
   }
   submitHandler() {
-    fetch('http://localhost:4000/signupp', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+    fetch("http://localhost:4000/signupp", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        'FirstName': this.state.FirstName,
-        'Gender': this.state.Gender,
-        'Email': this.state.Email,
-        'Password': this.state.Password,
-        'ContactNo': this.state.ContactNo,
-        'BloodTag' : this.state.BloodTag
-
-      }
-      )
-    })
-             this.props.history.push('/')
-    
-    
+        FirstName: this.state.FirstName,
+        Gender: this.state.Gender,
+        Email: this.state.Email,
+        Password: this.state.Password,
+        ContactNo: this.state.ContactNo,
+        BloodTag: this.state.BloodTag,
+        Address: this.state.Address,
+        Age: this.state.Age,
+      }),
+    });
+    this.props.history.push("/");
   }
-
   render() {
     return (
       <div>
-        <Navbar/>
-        {/* Required meta tags*/}
-        <meta charSet="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="Colorlib Templates" />
-        <meta name="author" content="Colorlib" />
-        <meta name="keywords" content="Colorlib Templates" />
-        {/* Title Page*/}
-        <title>Au Register Forms by Colorlib</title>
-        {/* Icons font CSS*/}
-        <link href="/CCD/vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all" />
-        <link href="/CCD/vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all" />
-        {/* Font special for pages*/}
-        <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
-        {/* Vendor CSS*/}
-        <link href="/CCD/vendor/select2/select2.min.css" rel="stylesheet" media="all" />
-        <link href="/CCD/vendor/datepicker/daterangepicker.css" rel="stylesheet" media="all" />
-        {/* Main CSS*/}
-        <link href="/CCD/css/main.css" rel="stylesheet" media="all" />
-        <div className="page-wrapper bg-gra-02 p-t-130 p-b-100 font-poppins">
-          <div className="wrapper wrapper--w680">
-            <div className="card card-4">
-              <div className="card-body">
-                <h2 className="title">Registration Form</h2>
-                <form  onSubmit={this.submitHandler}>
-                  <div className="row row-space">   
-                    <div className="col-2">
-                      <div className="input-group">
-                        <label className="label">First Name</label>
-                        <input className="input--style-4" type="text" name="FirstName" value={this.state.FirstName      } onChange={this.handlechange} />
-                      </div>
+        <Nav />
+        <div>
+          {/* SITE TITTLE */}
+          <meta charSet="utf-8" />
+          <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+          <meta name="viewport" content="width=device-width, initial-scale=1" />
+          <title>Small Apps</title>
+          {/* PLUGINS CSS STYLE */}
+          {/* Bootstrap */}
+          <link
+            href="yes/plugins/bootstrap/bootstrap.min.css"
+            rel="stylesheet"
+          />
+          {/* themify icon */}
+          <link
+            rel="stylesheet"
+            href="yes/plugins/themify-icons/themify-icons.css"
+          />
+          {/* Owl Carousel */}
+          <link
+            href="yes/plugins/owl-carousel/assets/owl.carousel.min.css"
+            rel="stylesheet"
+            media="screen"
+          />
+          {/* Owl Carousel Theme */}
+          <link
+            href="yes/plugins/owl-carousel/assets/owl.theme.green.min.css"
+            rel="stylesheet"
+            media="screen"
+          />
+          {/* Fancy Box */}
+          <link
+            href="yes/plugins/fancybox/jquery.fancybox.min.css"
+            rel="stylesheet"
+          />
+          {/* AOS */}
+          <link rel="stylesheet" href="yes/plugins/aos/aos.css" />
+          {/* CUSTOM CSS */}
+          <link href="yes/css/style.css" rel="stylesheet" />
+          {/* FAVICON */}
+          <link href="yes/images/favicon.png" rel="shortcut icon" />
+          {/*=============================
+=            Sign Up            =
+==============================*/}
+          <section className="user-login section">
+            <div className="container">
+              <div className="row">
+                <div className="col-12">
+                  <div className="block">
+                    {/* Image */}
+                    <div className="image align-self-center">
+                      <img
+                        className="img-fluid"
+                        src="yes/images/Login/pp.jpg"
+                        alt="desk-image"
+                      />
                     </div>
-                    
-                    <div className="col-2">
-                      <div className="input-group">
-                      <div className="p-t-10">
-                        <label for="BloodTag">Choose a Blood Type: </label>
-                        <label className="radio-container">A+
-                              <input type="radio" name="BloodTag" value="A+" checked={this.state.BloodTag === "A+"} onChange={this.handlechange} />
-                              <span className="checkmark" />
-                          </label>
-                          <br></br>
-                              <label className="radio-container">A-
-                              <input type="radio" name="BloodTag" value="A-" checked={this.state.BloodTag === "A-"} onChange={this.handlechange} />
-                              <span className="checkmark" />
-                              <br></br>
-                          </label>
-                              <label className="radio-container">B+
-                              <input type="radio" name="BloodTag" value="B+" checked={this.state.BloodTag === "B+"} onChange={this.handlechange} />
-                              <span className="checkmark" />
-                              <br></br>
-                          </label>
-                              <label className="radio-container">B-
-                              <input type="radio" name="BloodTag" value="B-" checked={this.state.BloodTag === "B-"} onChange={this.handlechange} />
-                              <span className="checkmark" />
-                              <br></br>
-                          </label>
-                              <label className="radio-container">AB+
-                              <input type="radio" name="BloodTag" value="AB+" checked={this.state.BloodTag === "AB+"} onChange={this.handlechange} />
-                              <span className="checkmark" />
-                              <br></br>
-                          </label>
-                              <label className="radio-container">AB-
-                              <input type="radio" name="BloodTag" value="AB-" checked={this.state.BloodTag === "AB-"} onChange={this.handlechange} />
-                              <span className="checkmark" />
-                              <br></br>
-                          </label>
-                          </div>
+                    {/* Content */}
+                    <div className="content text-center">
+                      <div className="logo">
+                        <a href="yes/homepage.html">
+                          <img src="images/n.jpg" alt="" />
+                        </a>
                       </div>
-                    </div>
-                  </div>
-                  <div className="row row-space">
-                    <div className="col-2">
-                      <div className="input-group">
-                        <label className="label">Phone Number</label>
-                        <div className="input-group-icon">
-                          <input className="input--style-4" type="tel" name="ContactNo" value={this.state.ContactNo} onChange={this.handlechange} />
+                      <div className="title-text">
+                        <h3>Sign Up for New Account</h3>
+                      </div>
+                      <form action="#" onSubmit={this.submitHandler}>
+                        {/* Username */}
+                        <input
+                          className="form-control main"
+                          type="text"
+                          name="FirstName"
+                          placeholder="Your Name"
+                          value={this.state.FirstName}
+                          onChange={this.handlechange}
+                        />
+                        {/* Email */}
+                        <input
+                          className="form-control main"
+                          type="email"
+                          name="Email"
+                          placeholder="Email Address"
+                          value={this.state.Email}
+                          onChange={this.handlechange}
+                        />
+                        {/* Password */}
+                        <input
+                          className="form-control main"
+                          type="password"
+                          name="Password"
+                          placeholder="Password"
+                          value={this.state.Password}
+                          onChange={this.handlechange}
+                        />
+                        <input
+                          className="form-control main"
+                          type="Address"
+                          name="Address"
+                          placeholder="Your Address"
+                          value={this.state.Address}
+                          onChange={this.handlechange}
+                        />
+                        <input
+                          className="form-control main"
+                          type="Age"
+                          name="Age"
+                          placeholder="Your Age"
+                          value={this.state.Age}
+                          onChange={this.handlechange}
+                        />
+                        <input
+                          className="form-control main"
+                          type="tel"
+                          name="ContactNo"
+                          placeholder="Your Number"
+                          value={this.state.ContactNo}
+                          onChange={this.handlechange}
+                        />
 
+                        <p>Please select your gender:</p>
+                        <input
+                          type="radio"
+                          name="Gender"
+                          value="M"
+                          checked={this.state.Gender === "M"}
+                          onChange={this.handlechange}
+                        />
+                        <label
+                          htmlFor="male"
+                          style={{ "font-weight": "normal" }}
+                        >
+                          &nbsp;Male &nbsp; &nbsp;&nbsp;
+                        </label>
+
+                        <input
+                          type="radio"
+                          name="Gender"
+                          value="F"
+                          checked={this.state.Gender === "F"}
+                          onChange={this.handlechange}
+                        />
+                        <label
+                          htmlFor="female"
+                          style={{ "font-weight": "normal" }}
+                        >
+                          {" "}
+                          &nbsp;Female
+                        </label>
+                        <br></br>
+                        <br></br>
+                        <div>
+                          <p>Choose Blood Type:</p>
+                          <div className="select animated zoomIn">
+                            {/* You can toggle select (disabled) */}
+                            <input type="radio" name="option" />
+                            <i className="toggle icon icon-arrow-down" />
+                            <i className="toggle icon icon-arrow-up" />
+                            <span className="placeholder">Choose</span>
+                            <label className="option">
+                              <input
+                                type="radio"
+                                name="BloodTag"
+                                value={"A+"}
+                                onChange={this.handlechange}
+                              />
+                              <span className="title animated fadeIn">
+                                <i className="icon icon-speedometer" />
+                                A+
+                              </span>
+                            </label>
+                            <label className="option">
+                              <input
+                                type="radio"
+                                name="BloodTag"
+                                value={"A-"}
+                              />
+                              <span className="title animated fadeIn">
+                                <i className="icon icon-fire" />
+                                A-
+                              </span>
+                            </label>
+                            <label className="option">
+                              <input
+                                type="radio"
+                                name="BloodTag"
+                                value={"AB+"}
+                              />
+                              <span className="title animated fadeIn">
+                                <i className="icon icon-handbag" />
+                                AB+
+                              </span>
+                            </label>
+                            <label className="option">
+                              <input
+                                type="radio"
+                                name="BloodTag"
+                                value={"AB+"}
+                              />
+                              <span className="title animated fadeIn">
+                                <i className="icon icon-badge" />
+                                AB-
+                              </span>
+                            </label>
+                            <label className="option">
+                              <input
+                                type="radio"
+                                name="BloodTag"
+                                value={"O+"}
+                              />
+                              <span className="title animated fadeIn">
+                                <i className="icon icon-badge" />
+                                O+
+                              </span>
+                            </label>
+                            <label className="option">
+                              <input
+                                type="radio"
+                                name="BloodTag"
+                                value={"O-"}
+                              />
+                              <span className="title animated fadeIn">
+                                <i className="icon icon-badge" />
+                                O-
+                              </span>
+                            </label>
+                          </div>
+                          <br />
+                          <br />
                         </div>
-                      </div>
-                    </div>
-                    <div className="col-2">
-                      <div className="input-group">
-                        <label className="label">Gender</label>
-                        <div className="p-t-10">
-                          <label className="radio-container m-r-45">Female
-                              <input type="radio" name="Gender" value="F" checked={this.state.Gender === "F"} onChange={this.handlechange} />
-                            <span className="checkmark" />
-                          </label>
-                          &nbsp;
-                          <label className="radio-container">Male
-                              <input type="radio" name="Gender" value="M" checked={this.state.Gender === "M"} onChange={this.handlechange} />
-                            <span className="checkmark" /> 
-                          </label>
-                        </div>
-                      </div>
+                      </form>
+
+                      {/* Submit Button */}
+                      <button
+                        className="btn btn-main-md"
+                        onClick={this.submitHandler}
+                      >
+                        sign up
+                      </button>
                     </div>
                   </div>
-                  <div className="row row-space">
-                    <div className="col-2">
-                      <div className="input-group">
-                        <label className="label">Email</label>
-                        <input className="input--style-4" type = "email"  name="Email" value={this.state.Email} onChange={this.handlechange} />
-                      </div>
-                    </div>
-                    <div className="col-2">
-                      <div className="input-group">
-                        <label className="label">Password</label>
-                        <input className="input--style-4" type="Password" name="Password" value={this.state.Password} onChange={this.handlechange} />
-                      </div>
-                    </div>
-                  </div>
- 
-                  <div className="p-t-15">              
-                    <button className="btn btn--radius-2 btn--blue" type="button" onClick={this.submitHandler}>Submit</button>
-                  </div>
-               
-                </form>
+                </div>
               </div>
             </div>
-          </div>
+          </section>
+          {/* JAVASCRIPTS */}
+          {/* google map */}
         </div>
-
       </div>
-
     );
   }
 }
 
-export default withRouter(Regform);
+export default Regform;

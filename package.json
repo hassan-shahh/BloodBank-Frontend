@@ -15,7 +15,7 @@
     "popper.js": "^1.16.1",
     "randomcolor": "^0.5.4",
     "react": "^16.12.0",
-    "react-bootstrap": "^1.0.0",
+    "react-bootstrap": "^1.0.1",
     "react-dom": "^16.12.0",
     "react-inputs-validation": "^4.3.4",
     "react-modal": "^3.11.2",

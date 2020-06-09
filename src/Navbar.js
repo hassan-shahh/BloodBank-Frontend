@@ -43,14 +43,13 @@ class Navbar extends Component {
         </li>
         
         <li>
-            <Link to='/Login'>
+            
           <a href="#">Login</a>
-          </Link>
+ 
         </li>
         <li>
-        <Link to='/RegForm'>
+       
           <a href="#">Signup</a>
-          </Link>
           </li>
         <li class="active">
           <a href="#">Contact</a>

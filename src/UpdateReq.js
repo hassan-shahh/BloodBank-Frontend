@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { Link, Redirect, withRouter } from "react-router-dom";
+import Header from "./AdminHead";
 
 class UpdateReq extends Component {
   constructor(props) {
@@ -45,6 +46,7 @@ class UpdateReq extends Component {
     }
     return (
       <div>
+        <Header />
         <React.Fragment>
           <div className="container">
             <div className="table-wrapper">

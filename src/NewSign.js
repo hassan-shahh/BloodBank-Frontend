@@ -1,6 +1,50 @@
 import React, { Component } from 'react';
+import './Power.css'
 
 class NewSign extends Component {
+  constructor() {
+    super();
+
+
+    this.state = {
+      FirstName: '',
+      Gender: '',
+      Email: '',
+      Password: '',
+      ContactNo: '',
+      BloodTag : '',
+      Address : '',
+      Age:'',
+    }
+    this.handlechange = this.handlechange.bind(this)
+    this.submitHandler = this.submitHandler.bind(this)
+  }
+  handlechange(event) {
+
+    this.setState({
+      [event.target.name]: event.target.value
+    })
+  }
+  submitHandler() {
+    fetch('http://localhost:4000/signupp', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        'FirstName': this.state.FirstName,
+        'Gender': this.state.Gender,
+        'Email': this.state.Email,
+        'Password': this.state.Password,
+        'ContactNo': this.state.ContactNo,
+        'BloodTag' : this.state.BloodTag,
+        'Address':this.state.Address,
+        'Age':this.state.Age
+      }
+      )
+    })
+             this.props.history.push('/')
+    
+    
+  }
     render() {
         return (
             <div>
@@ -45,28 +89,71 @@ class NewSign extends Component {
               <div className="title-text">
                 <h3>Sign Up for New Account</h3>
               </div>
-              <form action="#">
+              <form action="#"  onSubmit={this.submitHandler}>
                 {/* Username */}
-                <input className="form-control main" type="text" placeholder="Your Name" />
+                <input className="form-control main" type="text" name="FirstName" placeholder="Your Name" value={this.state.FirstName} onChange={this.handlechange}/>
                 {/* Email */}
-                <input className="form-control main" type="email" placeholder="Email Address" />
+                <input className="form-control main" type="email" name="Email" placeholder="Email Address" value={this.state.Email} onChange={this.handlechange} />
                 {/* Password */}
-                <input className="form-control main" type="password" placeholder="Password" />
-                <input className="form-control main" type="Address" placeholder="Your Address" />
-                <input className="form-control main" type="Age" placeholder="Your Age" />
-                <form action="/action_page.php">
-    
-                </form >
-              <p style={{"text-align": "left"}} >Please select your gender:</p>
- <input type="radio" id="male" name="gender" defaultValue="male" style={{"marginLeft": "___ set according to the page"}} />
-  <label htmlFor="male" >Male &nbsp; &nbsp;&nbsp;</label>
-	
-  <input type="radio" id="female" name="gender" defaultValue="female" />
-  <label htmlFor="female"  >Female</label><br></br>
+                <input className="form-control main" type="password" name="Password" placeholder="Password"  value={this.state.Password} onChange={this.handlechange}/>
+                <input className="form-control main" type="Address" name ="Address" placeholder="Your Address"  value={this.state.Address} onChange={this.handlechange}/>
+                <input className="form-control main" type="Age" name = "Age" placeholder="Your Age" value={this.state.Age} onChange={this.handlechange} />
+                <input className="form-control main" type="tel" name = "ContactNo" placeholder="Your Number"  value={this.state.ContactNo} onChange={this.handlechange} />
 
+                <p >Please select your gender:</p>
+ <input type="radio" name="Gender" value="M" checked={this.state.Gender === "M"} onChange={this.handlechange} />
+  <label htmlFor="male" style={{"font-weight": "normal"}}>&nbsp;Male &nbsp; &nbsp;&nbsp;</label>
+	  
+  <input type="radio" name="Gender" value="F" checked={this.state.Gender === "F"} onChange={this.handlechange}  />
+  <label htmlFor="female" style={{"font-weight": "normal"}} > &nbsp;Female</label><br></br>
+<br></br>
+                <div>
+                  <p>Choose Blood Type:</p>
+  <div className="select animated zoomIn">
+    {/* You can toggle select (disabled) */}
+    <input type="radio" name="option" />
+    <i className="toggle icon icon-arrow-down" />
+    <i className="toggle icon icon-arrow-up" />
+    <span className="placeholder">Choose...</span>
+    <label className="option">
+      <input type="radio" name="A+" value="A+" checked={this.state.BloodTag==="A+"} onChange={this.handlechange} />
+      <span className="title animated fadeIn"><i className="icon icon-speedometer" />A+</span>
+    </label>
+    <label className="option">
+      <input type="radio" name="A-" value={this.state.BloodTag} onChange={this.handlechange}/>
+      <span className="title animated fadeIn"><i className="icon icon-fire" value ="A-"/>A-</span>
+    </label>
+    <label className="option">
+      <input type="radio" name="AB+"value={this.state.BloodTag} onChange={this.handlechange} />
+      <span className="title animated fadeIn"><i className="icon icon-handbag" />AB+</span>
+    </label>
+    <label className="option">
+      <input type="radio" name="AB-"value={this.state.BloodTag} onChange={this.handlechange} />
+      <span className="title animated fadeIn"><i className="icon icon-badge" />AB-</span>
+    </label>
+    <label className="option">
+      <input type="radio" name="O+" value={this.state.BloodTag} onChange={this.handlechange}/>
+      <span className="title animated fadeIn"><i className="icon icon-badge" />O+</span>
+    </label>
+    <label className="option">
+      <input type="radio" name="O-" value={this.state.BloodTag} onChange={this.handlechange}/>
+      <span className="title animated fadeIn"><i className="icon icon-badge" />O-</span>
+    </label>
+  </div>
+  <br />
+  <br />
+</div>
+
+
+                
+              
+  
 </form>
+
+
+
                 {/* Submit Button */}
-                <button className="btn btn-main-md">sign up</button>
+                <button className="btn btn-main-md" onClick={this.submitHandler}>sign up</button>
               </div>
             </div>
           </div>
@@ -82,5 +169,7 @@ class NewSign extends Component {
         );
     }
 }
+
+
 
 export default NewSign;

@@ -21,23 +21,7 @@ class Login extends Component{
             [event.target.name]: event.target.value
            })
     }
-    submitHandler(event) {
-        event.preventDefault()
-        fetch('http://localhost:4000/log', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                "Email": this.state.Email,
-                'Password': this.state.Password
-            }
-            )
-        })
-        .then(res => res.text()).then(res => this.setState({status:res}))
-        localStorage.setItem('token',this.state.status)
-        if(this.state.status!='fail' && localStorage.getItem('token')){
-                 this.props.history.push('/')
-        }
-    }
+   
       constructor() {
           super();
   

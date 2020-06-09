@@ -12,7 +12,7 @@ import ReactDOM from 'react-dom';
 //import App from './App10'
 //import App11 from './App11'
 //import Football from './Football'
-import Rouute from './NewSign'
+import Rouute from './Rouute'
 import Try from './New'
 //import App19 from './App20'
 import Navbar from './Nav'
@@ -20,7 +20,6 @@ import * as serviceWorker from './serviceWorker';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import $ from'jquery';
 import Popper from 'popper.js';
-
 
 ReactDOM.render(<Rouute />, document.getElementById('root'));
 

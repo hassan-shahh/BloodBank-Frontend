@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import axios from "axios";
 import AddReq from "./AddReq";
 import UpdateReq from "./UpdateReq";
+import Header from "./AdminHead";
 
 class AdminRequest extends Component {
   state = { request: [] };
@@ -30,12 +31,13 @@ class AdminRequest extends Component {
 
   render() {
     return (
-      <Router>
-        <Route
-          exact
-          path="/adminreq"
-          render={(props) => (
-            <React.Fragment>
+      <Route
+        exact
+        path="/adminreq"
+        render={(props) => (
+          <React.Fragment>
+            <div>
+              <Header />
               <div className="container">
                 <div className="table-wrapper">
                   <div className="table-title">
@@ -139,12 +141,10 @@ class AdminRequest extends Component {
                   </table>
                 </div>
               </div>
-            </React.Fragment>
-          )}
-        />
-        <Route path="/adminreq/add" component={AddReq} />
-        <Route path="/adminreq/update" component={UpdateReq} />
-      </Router>
+            </div>
+          </React.Fragment>
+        )}
+      />
     );
   }
 }

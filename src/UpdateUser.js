@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import Header from "./AdminHead";
 
 class UpdateUser extends Component {
   constructor(props) {
@@ -51,13 +52,13 @@ class UpdateUser extends Component {
       }),
     })
       .then(this.setState({ status: "true" }))
-      .then(localStorage.setItem("shouldreload", "true"))
       .then(window.location.reload());
   }
 
   render() {
     return (
-      <React.Fragment>
+      <div>
+        <Header />
         <div className="container">
           <div className="table-wrapper">
             <div className="table-title">
@@ -212,7 +213,7 @@ class UpdateUser extends Component {
             </form>
           </div>
         </div>
-      </React.Fragment>
+      </div>
     );
   }
 }
