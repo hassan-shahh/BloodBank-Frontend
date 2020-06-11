@@ -35,6 +35,7 @@ class Loginnew extends Component {
         localStorage.setItem("type", res.status1);
         localStorage.setItem("email", this.state.Email);
         localStorage.setItem("userid", res.a);
+        localStorage.setItem("username", res.b);
       });
     if (
       localStorage.getItem("tok") &&

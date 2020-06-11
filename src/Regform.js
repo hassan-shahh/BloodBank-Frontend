@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import "./Power.css";
-import Nav from "./Nav";
+import Nav from "./Navnew";
 
 class Regform extends Component {
   constructor() {
@@ -195,85 +194,24 @@ class Regform extends Component {
                         </label>
                         <br></br>
                         <br></br>
-                        <div>
-                          <p>Choose Blood Type:</p>
-                          <div className="select animated zoomIn">
-                            {/* You can toggle select (disabled) */}
-                            <input type="radio" name="option" />
-                            <i className="toggle icon icon-arrow-down" />
-                            <i className="toggle icon icon-arrow-up" />
-                            <span className="placeholder">Choose</span>
-                            <label className="option">
-                              <input
-                                type="radio"
-                                name="BloodTag"
-                                value={"A+"}
-                                onChange={this.handlechange}
-                              />
-                              <span className="title animated fadeIn">
-                                <i className="icon icon-speedometer" />
-                                A+
-                              </span>
-                            </label>
-                            <label className="option">
-                              <input
-                                type="radio"
-                                name="BloodTag"
-                                value={"A-"}
-                              />
-                              <span className="title animated fadeIn">
-                                <i className="icon icon-fire" />
-                                A-
-                              </span>
-                            </label>
-                            <label className="option">
-                              <input
-                                type="radio"
-                                name="BloodTag"
-                                value={"AB+"}
-                              />
-                              <span className="title animated fadeIn">
-                                <i className="icon icon-handbag" />
-                                AB+
-                              </span>
-                            </label>
-                            <label className="option">
-                              <input
-                                type="radio"
-                                name="BloodTag"
-                                value={"AB+"}
-                              />
-                              <span className="title animated fadeIn">
-                                <i className="icon icon-badge" />
-                                AB-
-                              </span>
-                            </label>
-                            <label className="option">
-                              <input
-                                type="radio"
-                                name="BloodTag"
-                                value={"O+"}
-                              />
-                              <span className="title animated fadeIn">
-                                <i className="icon icon-badge" />
-                                O+
-                              </span>
-                            </label>
-                            <label className="option">
-                              <input
-                                type="radio"
-                                name="BloodTag"
-                                value={"O-"}
-                              />
-                              <span className="title animated fadeIn">
-                                <i className="icon icon-badge" />
-                                O-
-                              </span>
-                            </label>
-                          </div>
-                          <br />
-                          <br />
-                        </div>
+                        <div include="form-input-select()">
+                    <select required 
+                            name="BloodTag"
+                            value={this.state.BloodTag}
+                            onChange={this.handlechange}>
+
+                        <option value hidden>Blood Type</option>
+                        <option value={'A+'}>A+</option>
+                        <option value={'A-'}>A-</option>
+                        <option value={'B+'}>B+</option>
+                        <option  value={'B-'}>B-</option>
+                        <option value={'AB+'}>AB+</option>
+                        <option value={'AB-'}>AB-</option>
+                        <option value={'O+'}>O+</option>
+                        <option value={'O-'}>O-</option>
+
+                    </select>
+                </div>
                       </form>
 
                       {/* Submit Button */}

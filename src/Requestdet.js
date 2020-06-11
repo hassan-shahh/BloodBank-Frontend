@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import NavUser from "./NavUser";
+import Nav from "./Navnew";
 
 class Requestdet extends Component {
   constructor(props) {
@@ -29,7 +29,7 @@ class Requestdet extends Component {
     return (
       <div>
         <div>
-          <NavUser />
+          <Nav/>
         </div>
         <div className="container">
           <div className="row">
@@ -53,19 +53,18 @@ class Requestdet extends Component {
                           key={arr.UserID}
                         >
                           <h1>{arr.FirstName}</h1>
-                          <strong>Age: </strong> {arr.Age}{" "}
-                          <p>
-                            <strong>Age: </strong> {arr.Age}{" "}
-                          </p>
-                          <p>
-                            <strong>Gender: </strong> {arr.Gender}{" "}
-                          </p>
-                          <p>
-                            <strong>Address: </strong> {arr.Address}{" "}
-                          </p>
-                          <p>
-                            <strong>Contact: </strong> {arr.ContactNo}{" "}
-                          </p>
+                          <h2>
+                            <strong>Age: </strong> {arr.Age}
+                          </h2>
+                          <h2>
+                            <strong>Gender: </strong> {arr.Gender}
+                          </h2>
+                          <h2>
+                            <strong>Address: </strong> {arr.Address}
+                          </h2>
+                          <h2>
+                            <strong>Contact: </strong> {arr.ContactNo}
+                          </h2>
                         </li>
                       ))}
                     </h2>
@@ -73,7 +72,7 @@ class Requestdet extends Component {
                   <div className="col-xs-12 col-sm-4 text-center well profile">
                     <figure>
                       <img
-                        src="https://clipartart.com/images/clipart-profile.jpg"
+                        src="https://scontent.fkhi6-1.fna.fbcdn.net/v/t1.0-9/p960x960/45579964_2094655013912470_7262761964932169728_o.jpg?_nc_cat=104&_nc_sid=dd7718&_nc_ohc=VRo4gw1qslAAX-YosYT&_nc_ht=scontent.fkhi6-1.fna&_nc_tp=6&oh=a2cf1cb1b445eee71253f11b1cc0bc2b&oe=5F04DB9F"
                         alt=""
                         className="img-circle img-responsive"
                       />

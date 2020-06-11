@@ -60,8 +60,7 @@ class AdminUser extends Component {
                       <th>Address</th>
                       <th>Age</th>
                       <th>Status</th>
-                      <th>First Name</th>
-                      <th>Last Name</th>
+                      <th>Name</th>
                       <th>Gender</th>
                       <th>Contact No.</th>
                       <th>Email</th>
@@ -78,7 +77,6 @@ class AdminUser extends Component {
                         <td>{user.Age}</td>
                         <td>{user.Status}</td>
                         <td>{user.FirstName}</td>
-                        <td>{user.LastName}</td>
                         <td>{user.Gender}</td>
                         <td>{user.ContactNo}</td>
                         <td>{user.Email}</td>

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import NavUser from "./NavUser";
+import NavUser from "./Navnew";
 import "./Seac.css";
 
 class SearchForRequests extends Component {
@@ -41,9 +41,11 @@ class SearchForRequests extends Component {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
+      
         BloodTag: this.state.BloodTag,
       }),
     })
+    
       .then((res) => res.json())
       .then((arr) => this.setState({ Donors: arr }));
   }
@@ -100,18 +102,18 @@ class SearchForRequests extends Component {
             <div className="container">
               <table
                 className="table table-striped table-hover"
-                style={{ "text-align": "center", tableLayout: "fixed" }}
+                style={{ "text-align": "center", tableLayout: "fixed", }}
               >
-                <thead>
-                  <tr style={{ "font-size": "15px" }}>
-                    <th>BloodTag</th>
+                <thead >
+                  <tr style={{ "font-size": "15px"}}>
+                    <th>Bloodtag</th>
                     <th>Location</th>
                     <th>Donor Count</th>
                     <th>Blood / Components</th>
                     <th>Details</th>
                   </tr>
                 </thead>
-                <tbody>
+                <tbody style={{"font-size": "medium"}}>
                   {this.state.Donors.map((arr) => (
                     <tr key={arr.BloodrequestID}>
                       <td>{arr.BloodTag}</td>

@@ -11,8 +11,8 @@ function Header() {
       <Link to="/adminreq" style={lStyle}>
         Request
       </Link>
-      <Link to="/" style={lStyle} onClick={() => localStorage.clear("tok",)}>
-        Logout
+      <Link to="/" style={lStyle} onClick={() => localStorage.clear("tok")}>
+        LogOut
       </Link>
       <Link to="/adminuser" style={lStyle}>
         User

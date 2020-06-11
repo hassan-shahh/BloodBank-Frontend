@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import Nav from "./Nav";
-import Try from "./Try";
-import NewCrud from "./SearchForRequests";
-
+import Home from "./Home";
+import HomeUser from "./HomeUser";
 import Regform from "./Regform";
 import Loginnew from "./Loginnew";
 import SearchForRequests from "./SearchForRequests";
@@ -24,8 +23,8 @@ import AddReq from "./AddReq";
 import UpdateReq from "./UpdateReq";
 import YourRequest from "./YourRequest";
 import { PrivateRoute } from "./PrivateRoute";
-import Home from './Home'
-import HomeUser from './HomeUser'
+import UpdateProfile from "./UpdateProfile";
+import Profile from './Profile'
 class Rouute extends Component {
   render() {
     return (
@@ -59,19 +58,25 @@ class Rouute extends Component {
             }}
           />
           <Switch>
-            <Route path="/" exact component={Home}/>
-            <PrivateRoute path="/user" exact component={HomeUser}/>
+            <Route path="/" exact component={Home} />
             <Route path="/Login" exact component={Loginnew} />
             <Route path="/Regform" exact component={Regform} />
             <Route path="/search" exact component={SearchForRequests} />
-            <Route path="/YourReq" exact component={YourRequest} />
+            <PrivateRoute path="/YourReq" exact component={YourRequest} />
             <PrivateRoute path="/Reqform" exact component={Reqform} />
             <PrivateRoute path="/detail/:id" exact component={Requestdet} />
             <PrivateRoute path="/adminhome" exact component={AdminReq} />
             <PrivateRoute path="/adminreq" exact component={AdminRequest} />
             <PrivateRoute path="/adminuser" exact component={AdminUser} />
             <PrivateRoute path="/adminuser/add" exact component={AddUser} />
-            <PrivateRoute path="/adminuser/update" exact component={UpdateUser} />
+            <PrivateRoute path="/user" exact component={HomeUser} />
+            <PrivateRoute path="/profile" exact component={Profile} />
+            <PrivateRoute path="/updateprofile" exact component={UpdateProfile} />
+            <PrivateRoute
+              path="/adminuser/update"
+              exact
+              component={UpdateUser}
+            />
             <PrivateRoute path="/adminreq/add" exact component={AddReq} />
             <PrivateRoute path="/adminreq/update" exact component={UpdateReq} />
           </Switch>

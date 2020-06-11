@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import Nav from "./Nav";
-import NavUser from "./NavUser";
+import NavUser from "./Navnew";
 
 class YourRequest extends Component {
   constructor(props) {

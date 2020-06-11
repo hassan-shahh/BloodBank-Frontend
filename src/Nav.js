@@ -2,41 +2,29 @@ import React, { Component } from "react";
 
 import { Link } from "react-router-dom";
 class Nav extends Component {
+  state={
+    name:localStorage.getItem("username")
+  }
   render() {
     return (
       <div>
-        <header style={hstyle}>
-          <h1 style={{ color: "white" }}>BloodBank</h1>
-          <Link to="/" style={lStyle}>
-            Home
-          </Link>
-          <Link to="/Login" style={lStyle}>
-            Login
-          </Link>
-          <Link to="/RegForm" style={lStyle}>
-            Registration
-          </Link>
-          <Link to="/ReqForm" style={lStyle}>
-            Place Request
-          </Link>
-        </header>
-      </div>
+        <div>
+  <nav>
+    <div id="logo" style={{color:"#FFF"}}><img src= "/unnamed.png"/>BloodBank</div>
+    <label htmlFor="drop" className="toggle">Menu</label>
+    <input type="checkbox" id="drop" />
+    <ul className="menu">
+      <li><Link to="/">Home</Link></li>
+      <li><Link to="/Login">Login</Link></li>
+      <li><Link to="/Regform">Registration</Link></li>
+      <li><Link to="/Reqform">Place Request</Link></li>
+    </ul>
+  </nav>
+</div>
+
+        </div>
     );
-  }
 }
-
-const hstyle = {
-  background: "#333",
-  color: "#fff",
-  textAlign: "Center",
-  padding: "10px",
-  height: "120px",
-};
-
-const lStyle = {
-  color: "#fff",
-  padding: "10px",
-  textAlign: "right",
-};
+}
 
 export default Nav;

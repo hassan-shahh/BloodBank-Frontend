@@ -42,7 +42,22 @@ class Reqform extends Component {
   render() {
     return (
       <div>
+        {/*---- Include the above in your HEAD tag --------*/}
+        <title>Awesome Search Box</title>
+        <link
+          rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="stylesheet"
+          href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+          integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
+          crossOrigin="anonymous"
+        />
         <NavUser />
+        <br></br>
         <div>
           <meta charSet="UTF-8" />
           <meta
@@ -84,7 +99,7 @@ class Reqform extends Component {
                             onChange={this.handlechange}
                             placeholder="Blood Type"
                           >
-                            <option value />
+                            <option value hidden>Blood/Plasma</option>
                             <option value="Blood">Blood</option>
                             <option value="White Blood">White Blood</option>
                             <option value="Platelets">Platelets</option>
@@ -119,7 +134,8 @@ class Reqform extends Component {
                             onChange={this.handlechange}
                             placeholder="BloodType"
                           >
-                            <option value />
+
+                            <option value hidden>Blood Type</option>
                             <option value="A+">A+</option>
                             <option value="A-">A-</option>
                             <option value="B+">B+</option>
@@ -144,7 +160,8 @@ class Reqform extends Component {
                             value={this.state.Donorcount}
                             onChange={this.handlechange}
                           >
-                            <option value />
+                            <option value hidden>Donors</option>
+
                             <option value="1" selected>
                               1
                             </option>
@@ -170,7 +187,8 @@ class Reqform extends Component {
                           value={this.state.Cause}
                           onChange={this.handlechange}
                         >
-                          <option value />
+                          <option value hidden>Cause for the request</option>
+
                           <option value="Accident">Accident</option>
                           <option value="Surgery">Surgery</option>
                           <option value="Pregnancy">Pregnancy</option>
@@ -185,7 +203,7 @@ class Reqform extends Component {
                     <div className="form-group">
                       <label htmlFor="Phone">DATE:</label>
                       <input
-                        type="Phone"
+                        type="date"
                         name="Dateofrequest"
                         value={this.state.Dateofrequest}
                         onChange={this.handlechange}

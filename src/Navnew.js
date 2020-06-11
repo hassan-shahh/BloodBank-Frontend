@@ -1,7 +1,7 @@
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
-
-class NavUser extends Component {
+import React, { Component } from 'react';
+import {Link} from 'react-router-dom'
+import './new.css'
+class Navnew extends Component {
   state={
     name:localStorage.getItem("username")
   }
@@ -31,12 +31,10 @@ class NavUser extends Component {
     </ul>
   </nav>
 </div>
-</div>
 
-
+      </div>
     );
   }
 }
 
-
-export default NavUser;
+export default Navnew;

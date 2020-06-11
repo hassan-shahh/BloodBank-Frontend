@@ -46,7 +46,7 @@ class UpdateUser extends Component {
         FirstName: this.state.FirstName,
         LastName: this.state.LastName,
         Gender: this.state.Gender,
-        Contact: this.state.ContactNo,
+        ContactNo: this.state.ContactNo,
         Email: this.state.Email,
         Password: this.state.Password,
       }),
@@ -88,7 +88,7 @@ class UpdateUser extends Component {
                 <div className="form-group">
                   <label>UserRoleID</label>
                   <input
-                    name="Name"
+                    name="UserRoleID"
                     onChange={this.onChange}
                     type="number"
                     className="form-control"
@@ -149,17 +149,6 @@ class UpdateUser extends Component {
                     className="form-control"
                     required
                     value={this.state.FirstName}
-                  />
-                </div>
-                <div className="form-group">
-                  <label>Last Name</label>
-                  <input
-                    name="LastName"
-                    onChange={this.onChange}
-                    type="text"
-                    className="form-control"
-                    required
-                    value={this.state.LastName}
                   />
                 </div>
                 <div className="form-group">
