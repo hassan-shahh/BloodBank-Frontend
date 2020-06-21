@@ -10,9 +10,9 @@ class AdminRequest extends Component {
   state = { request: [] };
 
   async componentDidMount() {
-    await axios
-      .get("http://localhost:4000/adminreq")
-      .then((res) => this.setState({ request: res.data }));
+    if (localStorage.getItem("type") != "Admin") {
+      this.props.history.push("/search");
+    }
   }
 
   delete(BloodrequestID) {

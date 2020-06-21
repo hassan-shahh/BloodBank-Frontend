@@ -17,11 +17,9 @@ class AdminReq extends Component {
 
   async componentDidMount() {
     if (localStorage.getItem("type") != "Admin") {
-      this.props.history.push("/Login");
+      this.props.history.push("/search");
     }
-    await axios
-      .get("http://localhost:4000/adminemp")
-      .then((res) => this.setState({ employees: res.data }));
+   
   }
 
   delete(EmpID) {
@@ -175,7 +173,7 @@ class AdminReq extends Component {
               </React.Fragment>
             )}
           />
-          />
+          
         </div>
       </div>
     );

@@ -31,6 +31,12 @@ class UpdateUser extends Component {
     });
   }
 
+  async componentDidMount() {
+    if (localStorage.getItem("type") != "Admin") {
+      this.props.history.push("/search");
+    }
+
+  }
   async onSubmit(event) {
     event.preventDefault();
     await fetch("http://localhost:4000/updateuser", {

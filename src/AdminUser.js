@@ -10,11 +10,11 @@ class AdminUser extends Component {
   state = { user: [] };
 
   async componentDidMount() {
-    await axios
-      .get("http://localhost:4000/adminuser")
-      .then((res) => this.setState({ user: res.data }));
-  }
+    if (localStorage.getItem("type") != "Admin") {
+      this.props.history.push("/search");
+    }
 
+  }
   delete(UserID) {
     axios.delete(`http://localhost:4000/deladminuser/${UserID}`).then((res) =>
       this.setState({

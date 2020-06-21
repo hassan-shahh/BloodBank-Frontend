@@ -20,6 +20,13 @@ class UpdateReq extends Component {
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
   }
+  async componentDidMount() {
+    if (localStorage.getItem("type") != "Admin") {
+      this.props.history.push("/search");
+    }
+
+  }
+
   onChange(event) {
     this.setState({
       [event.target.name]: event.target.value,
